@@ -1,0 +1,74 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_all",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "inventory": [
+      {}
+    ],
+    "metal": {
+      "iron": {
+        "textures": {
+          "all": "minecraft:blocks/iron_block"
+        }
+      },
+      "gold": {
+        "textures": {
+          "all": "minecraft:blocks/gold_block"
+        }
+      },
+      "copper": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/block/Block_Copper"
+        }
+      },
+      "tin": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/block/Block_Tin"
+        }
+      },
+      "silver": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/block/Block_Silver"
+        }
+      },
+      "lead": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/block/Block_Lead"
+        }
+      },
+      "nickel": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/block/Block_Nickel"
+        }
+      },
+      "platinum": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/block/Block_Platinum"
+        }
+      },
+      "mithril": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/block/Block_Mithril"
+        }
+      },
+      "bronze": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/block/Block_Bronze"
+        }
+      },
+      "invar": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/block/Block_Invar"
+        }
+      },
+      "electrum": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/block/Block_Electrum"
+        }
+      }
+    }
+  }
+}

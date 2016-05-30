@@ -1,0 +1,70 @@
+#Ore
+tile.etherealstorage.ore.iron.name=Iron Ore
+tile.etherealstorage.ore.gold.name=Gold Ore
+tile.etherealstorage.ore.copper.name=Copper Ore
+tile.etherealstorage.ore.tin.name=Tin Ore
+tile.etherealstorage.ore.silver.name=Silver Ore
+tile.etherealstorage.ore.lead.name=Lead Ore
+tile.etherealstorage.ore.nickel.name=Nickel Ore
+tile.etherealstorage.ore.platinum.name=Platinum Ore
+tile.etherealstorage.ore.mithril.name=Mithril Ore
+
+#Ore
+tile.etherealstorage.block.iron.name=Block of Iron
+tile.etherealstorage.block.gold.name=Block of Gold
+tile.etherealstorage.block.copper.name=Block of Copper
+tile.etherealstorage.block.tin.name=Block of Tin
+tile.etherealstorage.block.silver.name=Block of Silver
+tile.etherealstorage.block.lead.name=Block of Lead
+tile.etherealstorage.block.nickel.name=Block of Nickel
+tile.etherealstorage.block.platinum.name=Block of Platinum
+tile.etherealstorage.block.mithril.name=Block of Mithril
+
+#Ingots
+item.etherealstorage.ingot.iron.name=Iron Ingot
+item.etherealstorage.ingot.gold.name=Gold Ingot
+item.etherealstorage.ingot.copper.name=Copper Ingot
+item.etherealstorage.ingot.tin.name=Tin Ingot
+item.etherealstorage.ingot.silver.name=Silver Ingot
+item.etherealstorage.ingot.lead.name=Lead Ingot
+item.etherealstorage.ingot.nickel.name=Nickel Ingot
+item.etherealstorage.ingot.platinum.name=Platinum Ingot
+item.etherealstorage.ingot.mithril.name=Mithril Ingot
+
+#Dust
+item.etherealstorage.dust.iron.name=Iron Dust
+item.etherealstorage.dust.gold.name=Gold Dust
+item.etherealstorage.dust.copper.name=Copper Dust
+item.etherealstorage.dust.tin.name=Tin Dust
+item.etherealstorage.dust.silver.name=Silver Dust
+item.etherealstorage.dust.lead.name=Lead Dust
+item.etherealstorage.dust.nickel.name=Nickel Dust
+item.etherealstorage.dust.platinum.name=Platinum Dust
+item.etherealstorage.dust.mithril.name=Mithril Dust
+
+#Nuggets
+item.etherealstorage.nugget.iron.name=Iron Nugget
+item.etherealstorage.nugget.gold.name=Gold Nugget
+item.etherealstorage.nugget.copper.name=Copper Nugget
+item.etherealstorage.nugget.tin.name=Tin Nugget
+item.etherealstorage.nugget.silver.name=Silver Nugget
+item.etherealstorage.nugget.lead.name=Lead Nugget
+item.etherealstorage.nugget.nickel.name=Nickel Nugget
+item.etherealstorage.nugget.platinum.name=Platinum Nugget
+item.etherealstorage.nugget.mithril.name=Mithril Nugget
+
+#Gears
+item.etherealstorage.gear.wood.name=Wooden Gear
+item.etherealstorage.gear.stone.name=Stone Gear
+item.etherealstorage.gear.iron.name=Iron Gear
+item.etherealstorage.gear.gold.name=Gold Gear
+item.etherealstorage.gear.copper.name=Copper Gear
+item.etherealstorage.gear.tin.name=Tin Gear
+item.etherealstorage.gear.silver.name=Silver Gear
+item.etherealstorage.gear.lead.name=Lead Gear
+item.etherealstorage.gear.nickel.name=Nickel Gear
+item.etherealstorage.gear.platinum.name=Platinum Gear
+item.etherealstorage.gear.mithril.name=Mithril Gear
+
+#Creative Tabs
+itemGroup.etherealstorage.general=Ethereal Storage

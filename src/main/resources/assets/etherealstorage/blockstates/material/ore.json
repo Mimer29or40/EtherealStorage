@@ -1,0 +1,59 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_all",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "inventory": [
+      {}
+    ],
+    "metal": {
+      "iron": {
+        "textures": {
+          "all": "minecraft:blocks/iron_ore"
+        }
+      },
+      "gold": {
+        "textures": {
+          "all": "minecraft:blocks/gold_ore"
+        }
+      },
+      "copper": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/ore/Ore_Copper"
+        }
+      },
+      "tin": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/ore/Ore_Tin"
+        }
+      },
+      "silver": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/ore/Ore_Silver"
+        }
+      },
+      "lead": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/ore/Ore_Lead"
+        }
+      },
+      "nickel": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/ore/Ore_Nickel"
+        }
+      },
+      "platinum": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/ore/Ore_Platinum"
+        }
+      },
+      "mithril": {
+        "textures": {
+          "all": "etherealstorage:blocks/material/ore/Ore_Mithril"
+        }
+      }
+    }
+  }
+}
