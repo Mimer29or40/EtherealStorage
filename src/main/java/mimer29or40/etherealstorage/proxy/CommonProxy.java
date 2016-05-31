@@ -9,6 +9,7 @@ import mimer29or40.etherealstorage.common.item.ItemBase;
 import mimer29or40.etherealstorage.common.item.ModItems;
 import mimer29or40.etherealstorage.common.material.MaterialGear;
 import mimer29or40.etherealstorage.common.material.MaterialMetal;
+import mimer29or40.etherealstorage.common.registry.IRegisterFurnaceRecipe;
 import mimer29or40.etherealstorage.common.registry.IRegisterRecipe;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -111,7 +112,17 @@ public class CommonProxy implements IProxy
     @Override
     public void registerFurnaceRecipes()
     {
+        for (BlockBase block : ModBlocks.getBlocks())
+        {
+            if (block instanceof IRegisterFurnaceRecipe)
+            { ((IRegisterFurnaceRecipe) block).registerFurnaceRecipes(); }
+        }
 
+        for (ItemBase item : ModItems.getItems())
+        {
+            if (item instanceof IRegisterFurnaceRecipe)
+            { ((IRegisterFurnaceRecipe) item).registerFurnaceRecipes(); }
+        }
     }
 
     @Override

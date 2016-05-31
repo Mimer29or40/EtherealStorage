@@ -6,10 +6,15 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 
 public class ModFluids
 {
+    private static List<BlockFluidBase> blockFluids = new ArrayList<>();
+
     public static BlockFluidMetal[] blockFluidMetals = new BlockFluidMetal[]{};
 
     public static void registerFluids()
@@ -56,6 +61,7 @@ public class ModFluids
 //                fluid.registerItemModel();
 //            }
 
+            blockFluids.add(blockFluid);
             Log.info(String.format("Registered fluid block with fluid (%s)", fluid.getClass().getCanonicalName()));
         }
         catch (Exception e)
@@ -65,6 +71,11 @@ public class ModFluids
         }
 
         return blockFluid;
+    }
+
+    public static List<BlockFluidBase> getFluidBlocks()
+    {
+        return Collections.unmodifiableList(blockFluids);
     }
 //    FLUID_METAL(BlockFluidMetal.class, "metal", 0, 1000, 1500, 300, false),
 //    ;
