@@ -45,6 +45,21 @@ public abstract class ItemBase extends Item implements IRegisterItemModel
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
 
+    public ItemStack getStack()
+    {
+        return new ItemStack(this);
+    }
+
+    public ItemStack getStack(int size)
+    {
+        return new ItemStack(this, size);
+    }
+
+    public ItemStack getStack(int size, int damage)
+    {
+        return new ItemStack(this, size, damage);
+    }
+
     @Override
     public void registerItemModel()
     {

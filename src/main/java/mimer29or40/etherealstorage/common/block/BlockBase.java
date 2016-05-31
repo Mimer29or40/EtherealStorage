@@ -53,6 +53,21 @@ public abstract class BlockBase extends Block implements IRegisterBlockModel
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
 
+    public ItemStack getStack()
+    {
+        return new ItemStack(this);
+    }
+
+    public ItemStack getStack(int size)
+    {
+        return new ItemStack(this, size);
+    }
+
+    public ItemStack getStack(int size, int meta)
+    {
+        return new ItemStack(this, size, meta);
+    }
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockModel()

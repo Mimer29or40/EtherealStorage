@@ -1,6 +1,6 @@
 package mimer29or40.etherealstorage;
 
-import mimer29or40.etherealstorage.common.item.ESItems;
+import mimer29or40.etherealstorage.common.item.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -11,7 +11,7 @@ public class EtherealStorageCreativeTabs
         @Override
         public Item getTabIconItem()
         {
-            return ESItems.ITEM_MATERIAL_GEAR.getItem();
+            return ModItems.itemMaterialGear;
         }
 
         @Override

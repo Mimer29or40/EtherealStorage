@@ -1,6 +1,7 @@
 package mimer29or40.etherealstorage;
 
 import com.google.common.base.Stopwatch;
+import mimer29or40.etherealstorage.common.config.Config;
 import mimer29or40.etherealstorage.common.util.Log;
 import mimer29or40.etherealstorage.proxy.IProxy;
 import net.minecraftforge.common.MinecraftForge;
@@ -126,7 +127,7 @@ public class EtherealStorage
     {
         if (event.getModID().equals(ModInfo.MOD_ID))
         {
-//            Config.loadConfiguration();
+            Config.loadConfiguration();
         }
     }
 }

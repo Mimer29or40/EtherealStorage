@@ -2,8 +2,8 @@ package mimer29or40.etherealstorage.common.item.material;
 
 import mimer29or40.etherealstorage.EtherealStorageCreativeTabs;
 import mimer29or40.etherealstorage.ModInfo;
-import mimer29or40.etherealstorage.common.item.ESItems;
 import mimer29or40.etherealstorage.common.item.ItemBase;
+import mimer29or40.etherealstorage.common.item.ModItems;
 import mimer29or40.etherealstorage.common.material.MaterialGear;
 import mimer29or40.etherealstorage.common.registry.IRegisterRecipe;
 import mimer29or40.etherealstorage.common.util.Log;
@@ -72,7 +72,7 @@ public class ItemMaterialGear extends ItemBase implements IRegisterRecipe
 
             if (!OreDictionary.doesOreNameExist(ingotName)) continue;
 
-            GameRegistry.addRecipe(new ShapedOreRecipe(ESItems.ITEM_MATERIAL_GEAR.getStack(1, gear.getMeta()),
+            GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.itemMaterialGear.getStack(1, gear.getMeta()),
                                                        " x ",
                                                        "xox",
                                                        " x ",
@@ -81,14 +81,14 @@ public class ItemMaterialGear extends ItemBase implements IRegisterRecipe
             Log.info("Recipe for gear%s created with %s", gear.getActualName(), ingotName);
         }
 
-        GameRegistry.addRecipe(new ShapedOreRecipe(ESItems.ITEM_MATERIAL_GEAR.getStack(1, MaterialGear.WOOD.getMeta()),
+        GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.itemMaterialGear.getStack(1, MaterialGear.WOOD.getMeta()),
                                                    " x ",
                                                    "xox",
                                                    " x ",
                                                    'x', "stickWood",
                                                    'o', "plankWood"));
 
-        GameRegistry.addRecipe(new ShapedOreRecipe(ESItems.ITEM_MATERIAL_GEAR.getStack(1, MaterialGear.STONE.getMeta()),
+        GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.itemMaterialGear.getStack(1, MaterialGear.STONE.getMeta()),
                                                    " x ",
                                                    "xox",
                                                    " x ",

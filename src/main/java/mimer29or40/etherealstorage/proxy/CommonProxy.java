@@ -1,7 +1,12 @@
 package mimer29or40.etherealstorage.proxy;
 
-import mimer29or40.etherealstorage.common.block.ESBlocks;
-import mimer29or40.etherealstorage.common.item.ESItems;
+import mimer29or40.etherealstorage.EtherealStorage;
+import mimer29or40.etherealstorage.common.block.BlockBase;
+import mimer29or40.etherealstorage.common.block.ModBlocks;
+import mimer29or40.etherealstorage.common.config.Config;
+import mimer29or40.etherealstorage.common.fluid.ModFluids;
+import mimer29or40.etherealstorage.common.item.ItemBase;
+import mimer29or40.etherealstorage.common.item.ModItems;
 import mimer29or40.etherealstorage.common.material.MaterialGear;
 import mimer29or40.etherealstorage.common.material.MaterialMetal;
 import mimer29or40.etherealstorage.common.registry.IRegisterRecipe;
@@ -14,19 +19,19 @@ public class CommonProxy implements IProxy
     @Override
     public void registerBlocks()
     {
-        ESBlocks.registerBlocks();
+        ModBlocks.registerBlocks();
     }
 
     @Override
     public void registerItems()
     {
-        ESItems.registerItems();
+        ModItems.registerItems();
     }
 
     @Override
     public void registerFluids()
     {
-
+        ModFluids.registerFluids();
     }
 
     @Override
@@ -42,7 +47,7 @@ public class CommonProxy implements IProxy
             {
                 String oreDictName = "ore" + metalName;
                 if (!OreDictionary.doesOreNameExist(oreDictName))
-                { OreDictionary.registerOre(oreDictName, ESBlocks.BLOCK_MATERIAL_ORE.getStack(1, meta)); }
+                { OreDictionary.registerOre(oreDictName, ModBlocks.blockMaterialOre.getStack(1, meta)); }
             }
 
             // Register Ore Block
@@ -50,7 +55,7 @@ public class CommonProxy implements IProxy
             {
                 String oreDictName = "block" + metalName;
                 if (!OreDictionary.doesOreNameExist(oreDictName))
-                { OreDictionary.registerOre(oreDictName, ESBlocks.BLOCK_MATERIAL_BLOCK.getStack(1, meta)); }
+                { OreDictionary.registerOre(oreDictName, ModBlocks.blockMaterialBlock.getStack(1, meta)); }
             }
 
             // Register Ingot
@@ -58,7 +63,7 @@ public class CommonProxy implements IProxy
             {
                 String oreDictName = "ingot" + metalName;
                 if (!OreDictionary.doesOreNameExist(oreDictName))
-                { OreDictionary.registerOre(oreDictName, ESItems.ITEM_MATERIAL_INGOT.getStack(1, meta)); }
+                { OreDictionary.registerOre(oreDictName, ModItems.itemMaterialIngot.getStack(1, meta)); }
             }
 
             // Register Dusts
@@ -66,7 +71,7 @@ public class CommonProxy implements IProxy
             {
                 String oreDictName = "dust" + metalName;
                 if (!OreDictionary.doesOreNameExist(oreDictName))
-                { OreDictionary.registerOre(oreDictName, ESItems.ITEM_MATERIAL_DUST.getStack(1, meta)); }
+                { OreDictionary.registerOre(oreDictName, ModItems.itemMaterialDust.getStack(1, meta)); }
             }
 
             // Register Nuggets
@@ -74,7 +79,7 @@ public class CommonProxy implements IProxy
             {
                 String oreDictName = "nugget" + metalName;
                 if (!OreDictionary.doesOreNameExist(oreDictName))
-                { OreDictionary.registerOre(oreDictName, ESItems.ITEM_MATERIAL_NUGGET.getStack(1, meta)); }
+                { OreDictionary.registerOre(oreDictName, ModItems.itemMaterialNugget.getStack(1, meta)); }
             }
         }
 
@@ -83,23 +88,23 @@ public class CommonProxy implements IProxy
         {
             String oreDictName = "gear" + gear.getActualName();
             if (!OreDictionary.doesOreNameExist(oreDictName))
-            { OreDictionary.registerOre(oreDictName, ESItems.ITEM_MATERIAL_GEAR.getStack(1, gear.getMeta())); }
+            { OreDictionary.registerOre(oreDictName, ModItems.itemMaterialGear.getStack(1, gear.getMeta())); }
         }
     }
 
     @Override
     public void registerRecipes()
     {
-        for (ESBlocks block : ESBlocks.values())
+        for (BlockBase block : ModBlocks.getBlocks())
         {
-            if (block.getBlock() instanceof IRegisterRecipe)
-            { ((IRegisterRecipe) block.getBlock()).registerRecipes(); }
+            if (block instanceof IRegisterRecipe)
+            { ((IRegisterRecipe) block).registerRecipes(); }
         }
 
-        for (ESItems item : ESItems.values())
+        for (ItemBase item : ModItems.getItems())
         {
-            if (item.getItem() instanceof IRegisterRecipe)
-            { ((IRegisterRecipe) item.getItem()).registerRecipes(); }
+            if (item instanceof IRegisterRecipe)
+            { ((IRegisterRecipe) item).registerRecipes(); }
         }
     }
 
@@ -142,6 +147,6 @@ public class CommonProxy implements IProxy
     @Override
     public void registerConfiguration(File configFile)
     {
-
+        EtherealStorage.configuration = Config.initConfig(configFile);
     }
 }

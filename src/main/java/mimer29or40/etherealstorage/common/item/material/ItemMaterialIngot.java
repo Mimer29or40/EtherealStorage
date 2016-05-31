@@ -2,8 +2,8 @@ package mimer29or40.etherealstorage.common.item.material;
 
 import mimer29or40.etherealstorage.EtherealStorageCreativeTabs;
 import mimer29or40.etherealstorage.ModInfo;
-import mimer29or40.etherealstorage.common.item.ESItems;
 import mimer29or40.etherealstorage.common.item.ItemBase;
+import mimer29or40.etherealstorage.common.item.ModItems;
 import mimer29or40.etherealstorage.common.material.MaterialMetal;
 import mimer29or40.etherealstorage.common.registry.IRegisterRecipe;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -77,11 +77,11 @@ public class ItemMaterialIngot extends ItemBase implements IRegisterRecipe
             String metalName = metal.getActualName();
 
             if (metal.isTypeSet(MaterialMetal.Type.INGOT, MaterialMetal.Type.BLOCK))
-            { GameRegistry.addRecipe(new ShapelessOreRecipe(ESItems.ITEM_MATERIAL_INGOT.getStack(9, metal.getMeta()), "block" + metalName)); }
+            { GameRegistry.addRecipe(new ShapelessOreRecipe(ModItems.itemMaterialIngot.getStack(9, metal.getMeta()), "block" + metalName)); }
 
             if (metal.isTypeSet(MaterialMetal.Type.INGOT, MaterialMetal.Type.NUGGET))
             {
-                GameRegistry.addRecipe(new ShapedOreRecipe(ESItems.ITEM_MATERIAL_INGOT.getStack(1, metal.getMeta()),
+                GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.itemMaterialIngot.getStack(1, metal.getMeta()),
                                                            "xxx",
                                                            "xxx",
                                                            "xxx",

@@ -2,7 +2,7 @@ package mimer29or40.etherealstorage.common.block.material;
 
 import mimer29or40.etherealstorage.EtherealStorageCreativeTabs;
 import mimer29or40.etherealstorage.common.block.BlockBase;
-import mimer29or40.etherealstorage.common.block.ESBlocks;
+import mimer29or40.etherealstorage.common.block.ModBlocks;
 import mimer29or40.etherealstorage.common.material.MaterialMetal;
 import mimer29or40.etherealstorage.common.registry.IRegisterRecipe;
 import net.minecraft.block.SoundType;
@@ -77,7 +77,7 @@ public class BlockMaterialBlock extends BlockBase implements IRegisterRecipe
         {
             if (metal.isTypeSet(MaterialMetal.Type.BLOCK, MaterialMetal.Type.INGOT))
             {
-                GameRegistry.addRecipe(new ShapedOreRecipe(ESBlocks.BLOCK_MATERIAL_BLOCK.getStack(1, metal.getMeta()),
+                GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.blockMaterialBlock.getStack(1, metal.getMeta()),
                                                            "xxx",
                                                            "xxx",
                                                            "xxx",
