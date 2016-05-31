@@ -5,7 +5,7 @@ import net.minecraft.util.IStringSerializable;
 public enum MaterialGear implements IStringSerializable
 {
     WOOD("Wood"),
-    COBBLESTONE("Stone"),
+    STONE("Stone"),
     IRON("Iron"),
     GOLD("Gold"),
     COPPER("Copper"),
@@ -29,12 +29,7 @@ public enum MaterialGear implements IStringSerializable
 
     public int getMeta()
     {
-        return this.ordinal();
-    }
-
-    public String getUnlocalizedName()
-    {
-        return this.name.toLowerCase();
+        return ordinal();
     }
 
     public String getName()
@@ -42,7 +37,7 @@ public enum MaterialGear implements IStringSerializable
         return this.name.toLowerCase();
     }
 
-    public String getGearName()
+    public String getActualName()
     {
         return this.name;
     }

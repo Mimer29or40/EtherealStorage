@@ -2,17 +2,23 @@ package mimer29or40.etherealstorage.common.item.material;
 
 import mimer29or40.etherealstorage.EtherealStorageCreativeTabs;
 import mimer29or40.etherealstorage.ModInfo;
+import mimer29or40.etherealstorage.common.item.ESItems;
 import mimer29or40.etherealstorage.common.item.ItemBase;
 import mimer29or40.etherealstorage.common.material.MaterialMetal;
+import mimer29or40.etherealstorage.common.registry.IRegisterRecipe;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import java.util.List;
 
-public class ItemMaterialIngot extends ItemBase
+public class ItemMaterialIngot extends ItemBase implements IRegisterRecipe
 {
     public ItemMaterialIngot()
     {
@@ -46,20 +52,47 @@ public class ItemMaterialIngot extends ItemBase
     public String getUnlocalizedName(ItemStack stack)
     {
         String name = super.getUnlocalizedName();
-        String metalName = MaterialMetal.byMeta(stack.getItemDamage()).getUnlocalizedName();
+        String metalName = MaterialMetal.byMeta(stack.getItemDamage()).getName();
         return name + "." + metalName;
     }
 
     @Override
-    public void registerItemRenderer()
+    public void registerItemModel()
     {
         for (MaterialMetal metal : MaterialMetal.values())
         {
             if (metal.isTypeSet(MaterialMetal.Type.INGOT))
             {
                 ModelLoader.setCustomModelResourceLocation(this, metal.getMeta(), new ModelResourceLocation(
-                        ModInfo.MOD_ID + ":material/ingot/ingot_" + metal.getUnlocalizedName(), "inventory"));
+                        ModInfo.MOD_ID + ":material/ingot/ingot_" + metal.getName(), "inventory"));
             }
         }
+    }
+
+    @Override
+    public void registerRecipes()
+    {
+        for (MaterialMetal metal : MaterialMetal.values())
+        {
+            String metalName = metal.getActualName();
+
+            if (metal.isTypeSet(MaterialMetal.Type.INGOT, MaterialMetal.Type.BLOCK))
+            { GameRegistry.addRecipe(new ShapelessOreRecipe(ESItems.ITEM_MATERIAL_INGOT.getStack(9, metal.getMeta()), "block" + metalName)); }
+
+            if (metal.isTypeSet(MaterialMetal.Type.INGOT, MaterialMetal.Type.NUGGET))
+            {
+                GameRegistry.addRecipe(new ShapedOreRecipe(ESItems.ITEM_MATERIAL_INGOT.getStack(1, metal.getMeta()),
+                                                           "xxx",
+                                                           "xxx",
+                                                           "xxx",
+                                                           'x', "nugget" + metalName));
+            }
+        }
+
+        GameRegistry.addRecipe(new ShapedOreRecipe(Items.IRON_INGOT,
+                                                   "xxx",
+                                                   "xxx",
+                                                   "xxx",
+                                                   'x', "nuggetIron"));
     }
 }

@@ -9,26 +9,25 @@ import java.util.List;
 public enum MaterialMetal implements IStringSerializable
 {
     // Vanilla
-    IRON("Iron", 0, Type.NUGGET, Type.DUST, Type.FLUID),
-    GOLD("Gold", 1, Type.DUST, Type.FLUID),
+    IRON("Iron", Type.NUGGET, Type.DUST, Type.FLUID),
+    GOLD("Gold", Type.DUST, Type.FLUID),
 
     // Natural
-    COPPER("Copper", 2, Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
-    TIN("Tin", 3, Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
-    SILVER("Silver", 4, Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
-    LEAD("Lead", 5, Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
-    NICKEL("Nickel", 6, Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
-    PLATINUM("Platinum", 7, Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
-    MITHRIL("Mithril", 8, Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
+    COPPER("Copper", Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
+    TIN("Tin", Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
+    SILVER("Silver", Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
+    LEAD("Lead", Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
+    NICKEL("Nickel", Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
+    PLATINUM("Platinum", Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
+    MITHRIL("Mithril", Type.INGOT, Type.NUGGET, Type.DUST, Type.ORE, Type.BLOCK, Type.FLUID),
 
     // Alloy
-//    BRONZE("Bronze", 9),
-//    INVAR("Invar", 10),
-//    ELECTRUM("Electrum", 11),
+//    BRONZE("Bronze"),
+//    INVAR("Invar"),
+//    ELECTRUM("Electrum"),
     ;
 
     private final String name;
-    private final int    meta;
     private final Type[] materialTypeList;
 
     private static final MaterialMetal[] META_LOOKUP = new MaterialMetal[values().length];
@@ -39,19 +38,15 @@ public enum MaterialMetal implements IStringSerializable
         { META_LOOKUP[metal.getMeta()] = metal; }
     }
 
-    MaterialMetal(String name, int meta, Type... materialTypes)
+    MaterialMetal(String name, Type... materialTypes)
     {
         this.name = name;
-        this.meta = meta;
         this.materialTypeList = materialTypes;
     }
 
     public static MaterialMetal byMeta(int meta)
     {
-        if (meta < 0 || meta >= META_LOOKUP.length)
-        {
-            meta = 0;
-        }
+        if (meta < 0 || meta >= META_LOOKUP.length) meta = 0;
 
         return META_LOOKUP[meta];
     }
@@ -61,24 +56,15 @@ public enum MaterialMetal implements IStringSerializable
         List<MaterialMetal> result = new ArrayList<>();
 
         for (MaterialMetal ore : values())
-        {
             if (ore.isTypeSet(type))
-            {
                 result.add(ore);
-            }
-        }
 
         return result;
     }
 
     public int getMeta()
     {
-        return this.meta;
-    }
-
-    public String getUnlocalizedName()
-    {
-        return this.name.toLowerCase();
+        return ordinal();
     }
 
     public String getName()
@@ -86,7 +72,7 @@ public enum MaterialMetal implements IStringSerializable
         return this.name.toLowerCase();
     }
 
-    public String getMetalName()
+    public String getActualName()
     {
         return this.name;
     }
@@ -96,9 +82,9 @@ public enum MaterialMetal implements IStringSerializable
         return getName();
     }
 
-    public boolean isTypeSet(Type enumOreType)
+    public boolean isTypeSet(Type... materialTypes)
     {
-        return Arrays.asList(materialTypeList).contains(enumOreType);
+        return Arrays.asList(materialTypeList).containsAll(Arrays.asList(materialTypes));
     }
 
     public enum Type

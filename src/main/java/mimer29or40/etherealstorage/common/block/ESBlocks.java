@@ -85,8 +85,8 @@ public enum ESBlocks
 
             if (Platform.isClient())
             {
-                block.registerBlockRenderer();
-                block.registerBlockItemRenderer();
+                block.registerBlockModel();
+                block.registerBlockItemModel();
             }
 
             Log.info(String.format("Registered block (%s)", block.getClass().getCanonicalName()));

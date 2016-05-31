@@ -2,7 +2,9 @@ package mimer29or40.etherealstorage.common.block.material;
 
 import mimer29or40.etherealstorage.EtherealStorageCreativeTabs;
 import mimer29or40.etherealstorage.common.block.BlockBase;
+import mimer29or40.etherealstorage.common.block.ESBlocks;
 import mimer29or40.etherealstorage.common.material.MaterialMetal;
+import mimer29or40.etherealstorage.common.registry.IRegisterRecipe;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -11,10 +13,12 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.List;
 
-public class BlockMaterialBlock extends BlockBase
+public class BlockMaterialBlock extends BlockBase implements IRegisterRecipe
 {
     public static PropertyEnum METAL = PropertyEnum.create("metal", MaterialMetal.class);
 
@@ -62,6 +66,22 @@ public class BlockMaterialBlock extends BlockBase
             if (metal.isTypeSet(MaterialMetal.Type.BLOCK))
             {
                 list.add(new ItemStack(itemIn, 1, metal.getMeta()));
+            }
+        }
+    }
+
+    @Override
+    public void registerRecipes()
+    {
+        for (MaterialMetal metal : MaterialMetal.values())
+        {
+            if (metal.isTypeSet(MaterialMetal.Type.BLOCK, MaterialMetal.Type.INGOT))
+            {
+                GameRegistry.addRecipe(new ShapedOreRecipe(ESBlocks.BLOCK_MATERIAL_BLOCK.getStack(1, metal.getMeta()),
+                                                           "xxx",
+                                                           "xxx",
+                                                           "xxx",
+                                                           'x', "ingot" + metal.getActualName()));
             }
         }
     }

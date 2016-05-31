@@ -1,8 +1,7 @@
 package mimer29or40.etherealstorage.common.block;
 
 import mimer29or40.etherealstorage.ModInfo;
-import mimer29or40.etherealstorage.common.registry.IRegisterBlockRenderer;
-import mimer29or40.etherealstorage.common.util.Log;
+import mimer29or40.etherealstorage.common.registry.IRegisterBlockModel;
 import mimer29or40.etherealstorage.common.util.Platform;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -19,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BlockBase extends Block implements IRegisterBlockRenderer
+public abstract class BlockBase extends Block implements IRegisterBlockModel
 {
     protected String resourcePath = "";
     protected String internalName = "";
@@ -56,10 +55,9 @@ public abstract class BlockBase extends Block implements IRegisterBlockRenderer
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockRenderer()
+    public void registerBlockModel()
     {
         final String resourcePath = String.format("%s:%s", ModInfo.MOD_ID, this.resourcePath);
-        Log.info(resourcePath);
 
         ModelLoader.setCustomStateMapper(this, new DefaultStateMapper()
         {
@@ -73,10 +71,9 @@ public abstract class BlockBase extends Block implements IRegisterBlockRenderer
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockItemRenderer()
+    public void registerBlockItemModel()
     {
         final String resourcePath = String.format("%s:%s", ModInfo.MOD_ID, this.resourcePath);
-        Log.info(resourcePath);
 
         List<ItemStack> subBlocks = new ArrayList<>();
         getSubBlocks(Item.getItemFromBlock(this), null, subBlocks);

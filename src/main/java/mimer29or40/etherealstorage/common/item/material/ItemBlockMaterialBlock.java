@@ -24,7 +24,7 @@ public class ItemBlockMaterialBlock extends ItemBlock
     public String getUnlocalizedName(ItemStack stack)
     {
         String name = super.getUnlocalizedName();
-        String materialName = MaterialMetal.byMeta(stack.getItemDamage()).getUnlocalizedName();
+        String materialName = MaterialMetal.byMeta(stack.getItemDamage()).getName();
         return name + "." + materialName;
     }
 }

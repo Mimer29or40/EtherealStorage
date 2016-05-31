@@ -1,13 +1,13 @@
 package mimer29or40.etherealstorage.common.item;
 
 import mimer29or40.etherealstorage.ModInfo;
-import mimer29or40.etherealstorage.common.registry.IRegisterItemRenderer;
+import mimer29or40.etherealstorage.common.registry.IRegisterItemModel;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
 
-public class ItemBase extends Item implements IRegisterItemRenderer
+public abstract class ItemBase extends Item implements IRegisterItemModel
 {
     protected String resourcePath = "";
     protected String internalName = "";
@@ -46,7 +46,7 @@ public class ItemBase extends Item implements IRegisterItemRenderer
     }
 
     @Override
-    public void registerItemRenderer()
+    public void registerItemModel()
     {
         final String resourcePath = String.format("%s:%s", ModInfo.MOD_ID, this.resourcePath);
 

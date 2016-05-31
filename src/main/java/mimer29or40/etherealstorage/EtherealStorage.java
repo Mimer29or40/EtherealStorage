@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -55,19 +56,17 @@ public class EtherealStorage
 
         proxy.registerItems();
 
-        proxy.registerGUIs();
-
-        proxy.registerFurnaceRecipes();
+        proxy.registerFluids();
 
         proxy.registerOreDict();
+
+        proxy.registerGUIs();
 
         proxy.registerEvents();
 
         proxy.registerRenderers();
 
         proxy.registerWorldGen();
-
-        proxy.registerFluids();
 
 //        IntegrationsManager.instance().index();
 //        IntegrationsManager.instance().preInit();
@@ -80,9 +79,12 @@ public class EtherealStorage
     {
         final Stopwatch stopwatch = Stopwatch.createStarted();
         Log.info("Initialization (Started)");
+
         proxy.registerRecipes();
 
         proxy.registerCrusherRecipes();
+
+        proxy.registerFurnaceRecipes();
 
 //        WorldGen worldGen = new WorldGen();
 //        GameRegistry.registerWorldGenerator(worldGen, 0);
@@ -108,7 +110,12 @@ public class EtherealStorage
         for (String key : fluids.keySet())
         {
             Fluid fluid = fluids.get(key);
-            Log.info(">>> Fluid Name: " + key + " (" + fluid.getUnlocalizedName() + ")");
+            Log.info(">>> Fluid Name: %s (%s)", key, fluid.getUnlocalizedName());
+        }
+
+        for (String oreName : OreDictionary.getOreNames())
+        {
+            Log.info(">>> OreDic Name: %s", oreName);
         }
 
         Log.info("Post Initialization (Ended after " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms)");

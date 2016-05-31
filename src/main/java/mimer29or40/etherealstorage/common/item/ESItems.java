@@ -74,7 +74,7 @@ public enum ESItems
 
             if (Platform.isClient())
             {
-                item.registerItemRenderer();
+                item.registerItemModel();
             }
 
             Log.info(String.format("Registered item (%s)", item.getClass().getCanonicalName()));

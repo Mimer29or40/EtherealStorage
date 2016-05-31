@@ -46,19 +46,19 @@ public class ItemMaterialNugget extends ItemBase
     public String getUnlocalizedName(ItemStack stack)
     {
         String name = super.getUnlocalizedName();
-        String metalName = MaterialMetal.byMeta(stack.getItemDamage()).getUnlocalizedName();
+        String metalName = MaterialMetal.byMeta(stack.getItemDamage()).getName();
         return name + "." + metalName;
     }
 
     @Override
-    public void registerItemRenderer()
+    public void registerItemModel()
     {
         for (MaterialMetal metal : MaterialMetal.values())
         {
             if (metal.isTypeSet(MaterialMetal.Type.NUGGET))
             {
                 ModelLoader.setCustomModelResourceLocation(this, metal.getMeta(), new ModelResourceLocation(
-                        ModInfo.MOD_ID + ":material/nugget/nugget_" + metal.getUnlocalizedName(), "inventory"));
+                        ModInfo.MOD_ID + ":material/nugget/nugget_" + metal.getName(), "inventory"));
             }
         }
     }
